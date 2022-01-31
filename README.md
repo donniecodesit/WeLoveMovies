@@ -4,6 +4,7 @@ The backend was built using JavaScript, Express, Node, and Knex, using an SQL da
 
 ## Live Example
 [Backend Client on Heroku](https://dl-movies-backend.herokuapp.com/)
+> Make requests to the backend URL, using `/movies`, `/reviews`, or `/theaters`.
 
 [Frontend Client on Heroku](https://dl-movies-frontend.herokuapp.com/)
 > The frontend was provided by Thinkful, but I made small modifications and hosted it to Heroku.
