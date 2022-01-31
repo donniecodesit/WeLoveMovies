@@ -34,7 +34,6 @@ async function update(req, res, next) {
     }
     const data = await knexService.update(updatedReview);
     updatedReview.critic = data;
-    console.log(updatedReview);
     res.json({ data: updatedReview });
 }
 
