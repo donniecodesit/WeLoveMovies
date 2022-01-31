@@ -27,11 +27,11 @@ function listMoviesShowing() {
 }
 
 function listTheatersPlaying(movie_id) {
-    return knex("movies as m")
-        .join("movies_theaters as mt", "m.movie_id", "mt.movie_id")
-        .join("theaters as t", "t.theater_id", "mt.theater_id")
+    return knex("theaters as t")
+        .join("movies_theaters as mt", "t.theater_id", "mt.theater_id")
         .select("t.*")
-        .where({ "m.movie_id": movie_id})
+        .where({ "mt.movie_id": movie_id })
+        .andWhere({ "mt.is_showing": true })
 }
 
 function listReviews(movie_id) {

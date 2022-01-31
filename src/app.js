@@ -19,7 +19,7 @@ app.use(express.json());
 
 //App Routes for Requests
 app.use("/movies", moviesRouter);
-//app.use("/reviews", reviewsRouter);
+app.use("/reviews", reviewsRouter);
 app.use("/theaters", theatersRouter);
 
 //Not Found Handler
