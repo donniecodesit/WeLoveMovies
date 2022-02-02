@@ -1,5 +1,7 @@
 const knex = require("../../db/connection");
 const reduceProperties  = require("../../utils/reduce-properties");
+
+// Reduce down returned information to what we want
 const reduceMovies = reduceProperties("theater_id", {
     movie_id: ["movies", null, "movie_id"],
     title: ["movies", null, "title"],
@@ -12,6 +14,7 @@ const reduceMovies = reduceProperties("theater_id", {
     updated_at: ["movies", null, "updated_at"]
 });
 
+// Return information about a theater and it's movies
 function list() {
     return knex("theaters as t")
         .join("movies_theaters as mt", "mt.theater_id", "t.theater_id")
@@ -20,6 +23,7 @@ function list() {
         .then(reduceMovies)
 }
 
+// Return information about theaters showing a specific movie
 function listTheatersByMovie(movie_id) {
     return knex("theaters as t")
         .join("movies_theaters as mt", "mt.theater_id", "t.theater_id")

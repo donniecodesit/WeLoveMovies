@@ -9,15 +9,17 @@ const criticObject = mapProperties({
     updated_at: "critic.updated_at"
 })
 
-
+// Fetch all rows from movies
 function list() { 
     return knex("movies").select("*");
 }
 
+// Fetch single matching row from movies
 function read(movie_id) {
     return knex("movies").where({ movie_id }).first();
 }
 
+// Fetch rows from movies where movie is showing
 function listMoviesShowing() {
     return knex("movies as m")
         .join("movies_theaters as mt", "m.movie_id", "mt.movie_id")
@@ -26,6 +28,7 @@ function listMoviesShowing() {
         .orderBy("m.movie_id");
 }
 
+// Fetch rows from theaters where movie is showing
 function listTheatersPlaying(movie_id) {
     return knex("theaters as t")
         .join("movies_theaters as mt", "t.theater_id", "mt.theater_id")
@@ -34,6 +37,7 @@ function listTheatersPlaying(movie_id) {
         .andWhere({ "mt.is_showing": true })
 }
 
+// Fetch rows from reviews where movie matches
 function listReviews(movie_id) {
     return knex("movies as m")
         .join("reviews as r", "r.movie_id", "m.movie_id")
