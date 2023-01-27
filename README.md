@@ -6,9 +6,6 @@ The backend was built using JavaScript, Express, Node, and Knex, using an SQL da
 [Backend Client on Vercel](https://dl-movies-backend.vercel.app/)
 > Make requests to the backend URL, using `/movies`, `/reviews`, or `/theaters`. IDs supported.
 
-[Frontend Client on Heroku](https://dl-movies-frontend.herokuapp.com/)
-> The frontend was provided by Thinkful, but I made small modifications and hosted it to Heroku.
-
 ## How To Install
 - Fork/Clone/Download this repository.
 - Run `npm install` to install dependencies.
